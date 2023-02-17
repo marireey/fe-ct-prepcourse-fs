@@ -117,7 +117,7 @@ function esEntero(num) {
    // Ejemplo: (-10) ---> true
    // De lo contrario, retorna false.
    // Tu código:
-   if (esEntero.isInteger(num)) {
+   if (Number.isInteger(num)) {
    return true
    } else 
    return false
@@ -154,11 +154,11 @@ function operadoresLogicos(num1, num2, num3) {
       return "Hay negativos";
    } else if (num3 > num1 && num3 > num2){
    return num3 + 1;
-   } else if (num1 || num2 || num3 === 0){
+   } else if (num1 === 0 || num2 === 0 || num3 === 0){
    return "Error"
-   } else
+   } else {
    return false 
-
+}
 }
 
 function esPrimo(num) {
@@ -168,11 +168,20 @@ function esPrimo(num) {
    // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
    // Tu código:
-   if (num && num === 0 || num && 1 === 0) {
-   return true;
-   } else return false;
+   if (num <= 1) {
+      return false 
+   }
+   for ( var primo = 2; primo < num ; primo++) 
+   if (num % primo === 0) {
+   return false
+}
+
+return true
 
 }
+ 
+   
+
 
 function esVerdadero(valor) {
    // Si "valor" es verdadero retornar "Soy verdadero".
